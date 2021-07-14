@@ -1,0 +1,121 @@
+// Same media query but it tooks 2 variables
+.adaptive (@from, @to, @rules) {
+	@media screen and (min-width: @from) and (max-width: calc(@to - 1px)) {
+		@rules();
+	}
+}
+
+// Center block whith absolute positioning 
+.absolute-center (@direction: horizontal) {
+	position: absolute;
+	
+	& when (@direction = horizontal) {
+		left: 50%;
+		transform+: translateX(-50%);
+	}
+	
+	& when (@direction = vertical) {
+		top: 50%;
+		transform+: translateY(-50%);
+	}
+
+	& when (@direction = both) {
+		top: 50%;
+		left: 50%;
+		transform+: translate(-50%, -50%);
+	}
+}
+
+// Transform block to flex container
+.flexy (@dir: row, @align: center, @justify: space-between, @wrap: nowrap) {
+	display: flex;
+
+	align-items: 			@align;
+	flex-direction: 	@dir;
+	flex-wrap: 				@wrap;
+	justify-content: 	@justify;
+}
+
+// Full screen via absolute positioning 
+.full-screen () {
+	display: block;
+	position: absolute;
+
+	left:		0;
+	top: 		0;
+	right: 	0;
+	bottom: 0;
+}
+
+// Turns off all controls and set display to none
+.hide () {
+	display: none;
+	pointer-events: none;
+	user-select: none;
+	z-index: -1;
+}
+
+// Block with rounded borders solid color and shadow
+.modern-block (@radius: 1rem) {
+	border-color: transparent;
+	border-radius: @radius;
+	box-shadow: rgba(black, 20%) 0 10px 20px, rgba(black, 20%) 0 6px 6px;
+	padding: @radius;
+}
+
+// Cross-browser transition 
+.transition (@args: all 500ms ease) {
+	transition: 				@args;
+
+	-webkit-transition: @args;
+	-o-transition: 			@args;
+	-moz-transition: 		@args;
+}
+
+/*
+Use units or an array with width and height paramethers as size
+Examples:
+
+.triangle(@size: {width: 20px; height: 15px}); // Set width and height directly
+.triangle(@size: 25px); // Set width equal to height 
+
+*/
+.triangle (@color, @size, @position) {
+	&:after {
+		content: '';
+    display: block;
+		width: 0;
+    height: 0;
+
+		position: absolute;
+    @position();
+
+		// If size set with only one number set width = height
+		border: @size solid transparent;
+		border-bottom: @size solid @color;
+
+		& when (isruleset(@size)) {
+			border: @size[width] solid transparent;
+			border-bottom: @size[height] solid @color;
+		}
+	}
+}
+
+// CSS underline via after pseudoclass
+.underline (@height: 2px, @color) {
+	&:after {
+		content: '';
+		width: 0%;
+		height: @height;
+
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		
+		background-color: @color;
+	}
+
+	&:hover:after {
+		width: 100%;
+	}
+}
