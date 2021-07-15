@@ -1,4 +1,10 @@
-// Use this mixin to registrate fonts 
+/*
+ * Use this mixin to registrate fonts 
+ * 
+ * @name Font's name. Used when calls font-family: 'FontName'
+ * @style Font's style. Allowed values: normal, bold, black, italic
+ * @url Link to font's file
+*/
 .font (@name, @style, @weight, @url) {
 	@font-face {
 		font-family: @name;

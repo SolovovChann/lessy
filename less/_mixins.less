@@ -1,11 +1,21 @@
-// Same media query but it tooks 2 variables
+/*
+ * Set styles, applys only when screen is in between @from and @to breakpoints.
+ * 
+ * @from, @to – breakpoints with units (like @from: 567px, @to: 1024px)
+ * @rules – mixin or style list
+ * 
+*/
 .adaptive (@from, @to, @rules) {
 	@media screen and (min-width: @from) and (max-width: calc(@to - 1px)) {
 		@rules();
 	}
 }
 
-// Center block whith absolute positioning 
+/* 
+ * Center block via absolute positioning
+ * 
+ * @direction Allowed values: horizontal, vertical, both
+*/
 .absolute-center (@direction: horizontal) {
 	position: absolute;
 	
@@ -26,7 +36,15 @@
 	}
 }
 
-// Transform block to flex container
+/*
+ * Short note for all flex settings.
+ * Use default flex values for each paramether
+ * 
+ * @dir Flex direction (row)
+ * @align Flex align items (center)
+ * @justify Flex justify items (space-between)
+ * @wrap Flex wrap (nowrap)
+*/
 .flexy (@dir: row, @align: center, @justify: space-between, @wrap: nowrap) {
 	display: flex;
 
@@ -36,7 +54,10 @@
 	justify-content: 	@justify;
 }
 
-// Full screen via absolute positioning 
+/* 
+ * Full screen via absolute positioning.
+ * Set display: block, position: absolute and all coords to zero 
+*/
 .full-screen () {
 	display: block;
 	position: absolute;
@@ -47,7 +68,9 @@
 	bottom: 0;
 }
 
-// Turns off all controls and set display to none
+/*
+ * Turns off all controls and set display to none
+*/
 .hide () {
 	display: none;
 	pointer-events: none;
@@ -55,7 +78,11 @@
 	z-index: -1;
 }
 
-// Block with rounded borders solid color and shadow
+/*
+ * Block with rounded borders solid color and shadow
+ * 
+ * @radius Border-radius (1rem). Also set padding = radius.
+*/
 .modern-block (@radius: 1rem) {
 	border-color: transparent;
 	border-radius: @radius;
@@ -63,7 +90,11 @@
 	padding: @radius;
 }
 
-// Cross-browser transition 
+/*
+ * Cross-browser transition 
+ * 
+ * @args String of default transition arguments (all 500ms ease)
+*/
 .transition (@args: all 500ms ease) {
 	transition: 				@args;
 
@@ -73,12 +104,14 @@
 }
 
 /*
-Use units or an array with width and height paramethers as size
-Examples:
-
-.triangle(@size: {width: 20px; height: 15px}); // Set width and height directly
-.triangle(@size: 25px); // Set width equal to height 
-
+ * Make element:after look like triangle
+ * 
+ * @color Triangle's color (white)
+ * @size Triangle's size. Pass value with units or an array with width and height paramethers as size
+ * @position Mixin or ruleset, describes triangle's position
+ * 
+ * .triangle(@size: {width: 20px; height: 15px}); // Set width and height directly
+ * .triangle(@size: 25px); // Set width equal to height 
 */
 .triangle (@color, @size, @position) {
 	&:after {
@@ -101,7 +134,12 @@ Examples:
 	}
 }
 
-// CSS underline via after pseudoclass
+/*
+ * Create underline via element:after pseudoclass
+
+ * @height Underline's height (2px)
+ * @color Undertile's color
+*/
 .underline (@height: 2px, @color) {
 	&:after {
 		content: '';
