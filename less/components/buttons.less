@@ -23,19 +23,41 @@
     &-@{key} {
       background-color: @value;
 
-      &:focus, &:active {
-        border-color: rgba(darken(@value, 35%), 75%);
-      }
-
       &:hover, &:focus {
         background-color: darken(@value, 10%);
       }
+
+      &:active {
+        border-color: rgba(darken(@value, 35%), 75%);
+      } 
 
       color: if(( 
         hue(@value) < 110 and 
         hue(@value) >= 35 or 
         lightness(@value) > 75
       ), @text[dark], @text[light]);
+    }
+  });
+
+// Custom outline colors
+  each(@color, {
+    &-outline-@{key} {
+      background-color: transparent;
+      border-color: @value;
+
+      &:focus, &:hover {
+        background-color: @value;
+
+        color: if(( 
+          hue(@value) < 110 and 
+          hue(@value) >= 35 or 
+          lightness(@value) > 75
+        ), @text[dark], @text[light]);
+      }
+
+      &:active {
+        border-color: rgba(darken(@value, 35%), 75%);
+      }
     }
   });
 }
