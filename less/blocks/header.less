@@ -1,0 +1,32 @@
+.header {
+  font-size: 0.95rem;
+  .modern-block(0);
+
+  &__container {
+    .flexy();
+  }
+
+  &-brand {
+     &__link {
+      font-weight: bold;
+      color: inherit;
+      font-size: 1rem;
+      text-decoration: none;
+    }
+
+    &__icon {
+      display: inline-block;
+      margin-right: 1rem;
+    }
+  }
+
+// Modificators
+  &_dark {
+    background-color: @text[dark];
+    color: white;
+  }
+
+  &_light {
+    background-color: @text[light];
+  }
+}
