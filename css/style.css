@@ -1,10 +1,56 @@
 /*
-Use units or an array with width and height paramethers as size
-Examples:
+ * Set styles, applys only when screen is in between @from and @to breakpoints.
+ * 
+ * @from, @to – breakpoints with units (like @from: 567px, @to: 1024px)
+ * @rules – mixin or style list
+ * 
+*/
+/* 
+ * Center block via absolute positioning
+ * 
+ * @direction Allowed values: horizontal, vertical, both
+*/
+/*
+ * Short note for all flex settings.
+ * Use default flex values for each paramether
+ * 
+ * @dir Flex direction (row)
+ * @align Flex align items (center)
+ * @justify Flex justify items (space-between)
+ * @wrap Flex wrap (nowrap)
+*/
+/* 
+ * Full screen via absolute positioning.
+ * Set display: block, position: absolute and all coords to zero 
+*/
+/*
+ * Turns off all controls and set display to none
+*/
+/*
+ * Block with rounded borders solid color and shadow
+ * 
+ * @radius Border-radius (1rem). Also set padding = radius.
+*/
+/*
+ * Cross-browser transition 
+ * 
+ * @args String of default transition arguments (all 500ms ease)
+*/
+/*
+ * Make element:after look like triangle
+ * 
+ * @color Triangle's color (white)
+ * @size Triangle's size. Pass value with units or an array with width and height paramethers as size
+ * @position Mixin or ruleset, describes triangle's position
+ * 
+ * .triangle(@size: {width: 20px; height: 15px}); // Set width and height directly
+ * .triangle(@size: 25px); // Set width equal to height 
+*/
+/*
+ * Create underline via element:after pseudoclass
 
-.triangle(@size: {width: 20px; height: 15px}); // Set width and height directly
-.triangle(@size: 25px); // Set width equal to height 
-
+ * @height Underline's height (2px)
+ * @color Undertile's color
 */
 /* Drop default styles  */
 @import '/css/bootstrap-grid.css';
@@ -46,6 +92,13 @@ select {
     scroll-behavior: auto !important;
   }
 }
+/*
+ * Use this mixin to registrate fonts 
+ * 
+ * @name Font's name. Used when calls font-family: 'FontName'
+ * @style Font's style. Allowed values: normal, bold, black, italic
+ * @url Link to font's file
+*/
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
@@ -82,9 +135,6 @@ select {
   font-weight: 300;
   src: url('../fonts/GoogleMontserrat/Montserrat-Itelic.ttf') format('woff2');
 }
-.test {
-  font-size: 1rem;
-}
 .btn {
   display: inline-block;
   padding: 0.25em 0.75em;
@@ -102,61 +152,116 @@ select {
   background-color: #2c84cc;
   color: #f4f4f4;
 }
-.btn-primary:focus,
-.btn-primary:active {
-  border-color: rgba(12, 37, 57, 0.75);
-}
 .btn-primary:hover,
 .btn-primary:focus {
   background-color: #2369a2;
+}
+.btn-primary:active {
+  border-color: rgba(12, 37, 57, 0.75);
 }
 .btn-secondary {
   background-color: #1f4d74;
   color: #f4f4f4;
 }
-.btn-secondary:focus,
-.btn-secondary:active {
-  border-color: rgba(0, 0, 0, 0.75);
-}
 .btn-secondary:hover,
 .btn-secondary:focus {
   background-color: #14324c;
+}
+.btn-secondary:active {
+  border-color: rgba(0, 0, 0, 0.75);
 }
 .btn-success {
   background-color: #3caea3;
   color: #f4f4f4;
 }
-.btn-success:focus,
-.btn-success:active {
-  border-color: rgba(14, 41, 39, 0.75);
-}
 .btn-success:hover,
 .btn-success:focus {
   background-color: #2f887f;
+}
+.btn-success:active {
+  border-color: rgba(14, 41, 39, 0.75);
 }
 .btn-warning {
   background-color: #f6d55c;
   color: #39434d;
 }
-.btn-warning:focus,
-.btn-warning:active {
-  border-color: rgba(151, 121, 8, 0.75);
-}
 .btn-warning:hover,
 .btn-warning:focus {
   background-color: #f3c92c;
+}
+.btn-warning:active {
+  border-color: rgba(151, 121, 8, 0.75);
 }
 .btn-danger {
   background-color: #ed553b;
   color: #f4f4f4;
 }
-.btn-danger:focus,
-.btn-danger:active {
-  border-color: rgba(108, 24, 10, 0.75);
-}
 .btn-danger:hover,
 .btn-danger:focus {
   background-color: #e03215;
+}
+.btn-danger:active {
+  border-color: rgba(108, 24, 10, 0.75);
+}
+.btn-outline-primary {
+  background-color: transparent;
+  border-color: #2c84cc;
+}
+.btn-outline-primary:focus,
+.btn-outline-primary:hover {
+  background-color: #2c84cc;
+  color: #f4f4f4;
+}
+.btn-outline-primary:active {
+  border-color: rgba(12, 37, 57, 0.75);
+}
+.btn-outline-secondary {
+  background-color: transparent;
+  border-color: #1f4d74;
+}
+.btn-outline-secondary:focus,
+.btn-outline-secondary:hover {
+  background-color: #1f4d74;
+  color: #f4f4f4;
+}
+.btn-outline-secondary:active {
+  border-color: rgba(0, 0, 0, 0.75);
+}
+.btn-outline-success {
+  background-color: transparent;
+  border-color: #3caea3;
+}
+.btn-outline-success:focus,
+.btn-outline-success:hover {
+  background-color: #3caea3;
+  color: #f4f4f4;
+}
+.btn-outline-success:active {
+  border-color: rgba(14, 41, 39, 0.75);
+}
+.btn-outline-warning {
+  background-color: transparent;
+  border-color: #f6d55c;
+}
+.btn-outline-warning:focus,
+.btn-outline-warning:hover {
+  background-color: #f6d55c;
+  color: #39434d;
+}
+.btn-outline-warning:active {
+  border-color: rgba(151, 121, 8, 0.75);
+}
+.btn-outline-danger {
+  background-color: transparent;
+  border-color: #ed553b;
+}
+.btn-outline-danger:focus,
+.btn-outline-danger:hover {
+  background-color: #ed553b;
+  color: #f4f4f4;
+}
+.btn-outline-danger:active {
+  border-color: rgba(108, 24, 10, 0.75);
 }
 h1,
 h2,
@@ -167,10 +272,10 @@ h6 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
 }
-.form-group {
+.form__group {
   margin-bottom: 0.5em;
 }
-.form-input {
+.form__input {
   border: 0.1em solid #39434d;
   display: block;
   line-height: normal;
@@ -179,11 +284,11 @@ h6 {
   font-size: 1.25rem;
   outline: none;
 }
-.form-input:focus {
+.form__input:focus {
   border-color: #2c84cc;
   outline: none;
 }
-.form-label {
+.form__label {
   color: #555;
   font-size: 1rem;
   padding: 0;
@@ -201,12 +306,82 @@ h6 {
 p.form-warning {
   font-weight: 700;
 }
-.form-submit {
+.form__submit {
   display: block;
   width: 100%;
 }
-.form-submit__container {
+.form__submit__container {
   margin: 0 auto;
+}
+.navigation {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  width: 100%;
+  list-style: none;
+}
+.navigation__item {
+  height: 100%;
+  padding: 0 0.75em;
+}
+.navigation__link {
+  text-decoration: none;
+  color: inherit;
+}
+.navigation__submenu {
+  display: none;
+  pointer-events: none;
+  user-select: none;
+  z-index: -1;
+}
+.searchbar {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+.searchbar__input {
+  background-color: transparent;
+  border: 1px solid #f4f4f4;
+  color: #f4f4f4;
+  margin: 0 0.25em;
+}
+.searchbar__button {
+  flex: 1 0 auto;
+}
+.header {
+  font-size: 0.95rem;
+  border-color: transparent;
+  border-radius: 0;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 10px 20px, rgba(0, 0, 0, 0.2) 0 6px 6px;
+  padding: 0;
+}
+.header__container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+.header-brand__link {
+  font-weight: bold;
+  color: inherit;
+  font-size: 1rem;
+  text-decoration: none;
+}
+.header-brand__icon {
+  display: inline-block;
+  margin-right: 1rem;
+}
+.header_dark {
+  background-color: #39434d;
+  color: white;
+}
+.header_light {
+  background-color: #f4f4f4;
 }
 body {
   font-family: 'Roboto', sans-serif;
