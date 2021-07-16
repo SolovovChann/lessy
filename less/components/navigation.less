@@ -1,0 +1,19 @@
+.navigation {
+  .flexy(@align: center, @justify: flex-start);
+  width: 100%;
+  list-style: none;
+  
+  &__item {
+    height: 100%;
+    padding: 0 .75em;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  &__submenu {
+    .hide();
+  }
+}
