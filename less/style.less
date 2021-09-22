@@ -1,0 +1,37 @@
+@import '_vars.less';
+@import '_mixins.less';
+@import '_fonts.less';
+@import './components/_components.less';
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  min-height: 100vh;
+  font: normal 400 16pt @fonts[regular];
+}
+
+input,
+button,
+textarea {
+  font: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.heading {
+  font-family: @fonts[headings];
+  font-weight: 400;
+  margin-bottom: 0.35em;
+}

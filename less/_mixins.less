@@ -1,0 +1,107 @@
+// ===========
+// Load font family
+// Rules is map like weigt : url
+// ===========
+
+.font (@name, @style, @urls) {
+  each(@urls, {
+    @font-face {
+      font-family: @name;
+      font-style: @style;
+      font-weight: @key;
+      src: url(@value) format('woff2');
+    }
+  });
+}
+
+// ===========
+// Flexbox container
+// ===========
+
+.flexy(
+    @inline: false,
+    @dir: row,
+    @wrap: false,
+    @justify: space-between,
+    @align: stretch,
+    @content: flext-start
+) {
+  display: if(@inline, inline-flex, flex);
+
+  align-items: @align;
+  flex-direction: @dir;
+  flex-wrap: if(@wrap, wrap, nowrap);
+  justify-content: @content;
+  justify-content: @justify;
+}
+
+// ===========
+// Absolute center
+// ===========
+
+.center (@dir) when (@dir = horizontal) {
+  transform+: translateX(-50%);
+}
+
+.center (@dir) when (@dir = vertical) {
+  transform+: translateY(-50%);
+}
+
+.center (@dir) when (@dir = both) {
+  transform+: translate(-50%, -50%);
+}
+
+// ===========
+// Hide block
+// ===========
+
+.hide () {
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  pointer-events: none;
+  user-select: none;
+  z-index: -1;
+}
+
+// ===========
+// Triangle
+// Aply to :after :before pesudo classes
+// ===========
+
+.triangle(@color, @size, @position) {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  @position();
+
+  border: @size solid transparent;
+  border-bottom: @size solid @color;
+
+  & when (isruleset(@size)) {
+    border: @size[width] solid @color;
+    border-bottom: @size[height] solid @color;
+  }
+}
+
+// ===========
+// Underline
+// Aply to :after :before pesudo classes
+// ===========
+
+.underline (@size, @color) {
+  content: '';
+  width: 0%;
+  height: @size;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  background-color: @color;
+
+  &:hover {
+    width: 100%;
+  }
+}
