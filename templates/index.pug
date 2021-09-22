@@ -1,0 +1,50 @@
+doctype html
+html(lang="ru")
+  head
+    title Главная страница | Lessy
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel="shortcut icon", href="./img/logo.png", type="image/x-icon")
+  body
+    h1.title Lessy framework
+    h2 Типрографика
+    div.typography Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat consectetur similique, libero quaerat veniam nobis animi labore id maiores natus minus repellendus suscipit fugiat accusamus officiis, omnis error sapiente cupiditate?
+      strong Полужирный 
+      em Курсив 
+      u Подчёркнутый 
+      del Перечёркнутый 
+      a(href="#") Ссылка
+    h2 Компоненты
+      h3 Кнопки
+      .button-list 
+        button.button.primary Основной
+        button.button.secondary Вторичный
+        button.button.error Ошибка
+        button.button.warning Предупреждение
+        button.button.success Успех
+
+      .button-list 
+        button.button.primary.outline Основной
+        button.button.secondary.outline Вторичный
+        button.button.error.outline Ошибка
+        button.button.warning.outline Предупреждение
+        button.button.success.outline Успех
+
+      #test-form 
+        form.form(action="") 
+          .form-group
+            label.form-label Ваше имя
+              input(type="text" name="field1" placeholder="Ваше имя").form-input
+
+          .form-group
+            label.form-label Ваша апрельская ложь
+              input(type="text" name="field2" placeholder="Ваша апрельская ложь").form-input
+
+          .form-group
+            label.form-label Вы пидор
+              input(type="text" name="field3" placeholder="Вы пидор").form-input
+
+          .form-group
+            label.form-checkbox Проверка чекбокса
+              input(type="checkbox", name="field4")
