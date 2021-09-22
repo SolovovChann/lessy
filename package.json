@@ -1,0 +1,37 @@
+{
+  "name": "lessy",
+  "version": "1.0.0",
+  "description": "Solovov Chan's webpack bundle",
+  "main": "js/index.js",
+  "scripts": {
+    "build": "./node_modules/.bin/webpack",
+    "watch": "./node_modules/.bin/webpack --watch"
+  },
+  "keywords": [
+    "webpack",
+    "less",
+    "java script"
+  ],
+  "author": "Solovov Chann",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^6.2.0",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.2",
+    "less": "^4.1.1",
+    "less-loader": "^10.0.1",
+    "mini-css-extract-plugin": "^2.2.0",
+    "prettier": "2.3.2",
+    "pug": "^3.0.2",
+    "pug-loader": "^2.4.0",
+    "style-loader": "^3.2.1",
+    "webpack": "^5.51.1",
+    "webpack-cli": "^4.8.0"
+  },
+  "dependencies": {
+    "clean-webpack-plugin": "^4.0.0-alpha.0"
+  }
+}
