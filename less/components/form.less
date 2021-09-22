@@ -1,0 +1,107 @@
+.form,
+.form-group,
+.form-input,
+.form-label {
+  display: block;
+  width: 100%;
+}
+
+// =======
+// Form group
+// =======
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+// =======
+// Form input
+// =======
+
+.form-input {
+  border: 1px solid @color[secondary];
+  padding: 0.5rem 1rem;
+
+  border-radius: 0.5rem;
+  outline: none;
+
+  font: normal 500 16pt @fonts[regular];
+
+  transition: 250ms ease-out;
+
+  &:hover,
+  &:focus {
+    border-color: @color[primary];
+  }
+}
+
+// =======
+// Form checkbox
+// =======
+
+.form-checkbox {
+  @size: 3rem;
+  @outer: 0.25rem;
+
+  text-transform: uppercase;
+  cursor: pointer;
+
+  position: relative;
+  transition: 250ms ease-in;
+  user-select: none;
+
+  & > input {
+    display: none;
+  }
+
+  &.active {
+    color: @color[primary];
+
+    &:after {
+      background-color: @color[primary];
+      left: calc(@size);
+    }
+  }
+
+  &:before {
+    content: '';
+    display: inline-block;
+    width: 2 * @size;
+    height: @size;
+
+    border-radius: 99rem;
+    box-shadow: 0 1px 1px rgba(#000, 16);
+
+    position: relative;
+    top: 50%;
+
+    .center(vertical);
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    border-radius: 99rem;
+    background-color: @color[secondary];
+    width: calc(@size - @outer);
+    height: calc(@size - @outer);
+    position: absolute;
+    left: @outer;
+    top: 50%;
+
+    transition: 250ms ease-out;
+
+    .center(vertical);
+  }
+}
+
+// =======
+// Form label
+// =======
+
+.form-label {
+  text-transform: uppercase;
+  color: @color[primary];
+  font-size: 10pt;
+  cursor: pointer;
+}

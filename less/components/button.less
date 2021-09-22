@@ -1,0 +1,150 @@
+.button {
+  // ===========
+  // Sizing
+  // ===========
+
+  display: inline-block;
+  border: 1px solid transparent;
+  padding: 0.8rem 2rem;
+  margin: 0.5rem;
+
+  // ===========
+  // Font
+  // ===========
+
+  font-family: @fonts[headings];
+  font-weight: 300;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  // ===========
+  // Other style
+  // ===========
+
+  background-color: transparent;
+  border-radius: 0.5rem;
+  color: @text[black-100];
+  cursor: pointer;
+  outline: none;
+  box-shadow: @shadow[regular];
+
+  transition: 250ms ease-out;
+
+  &:active {
+    box-shadow: none;
+  }
+
+  // ===========
+  // Colors
+  // ===========
+
+  &.primary {
+    background-color: @color[primary];
+    color: @text[white-100];
+
+    &:hover,
+    &:focus {
+      background-color: darken(@color[primary], 15%);
+    }
+
+    &.outline {
+      background-color: transparent;
+      border-color: @color[primary];
+      color: @color[primary];
+
+      &:hover,
+      &:focus {
+        background-color: @color[primary];
+        color: @text[white-100];
+      }
+    }
+  }
+
+  &.secondary {
+    background-color: @color[secondary];
+    color: #1c32a2;
+
+    &:hover,
+    &:focus {
+      background-color: darken(@color[secondary], 15%);
+    }
+
+    &.outline {
+      background-color: transparent;
+      border-color: @color[secondary];
+      color: @color[secondary];
+
+      &:hover,
+      &:focus {
+        background-color: @color[secondary];
+        color: #1c32a2;
+      }
+    }
+  }
+
+  &.error {
+    background-color: @color[error];
+    color: #37e649;
+
+    &:hover,
+    &:focus {
+      background-color: darken(@color[error], 15%);
+    }
+
+    &.outline {
+      background-color: transparent;
+      border-color: @color[error];
+      color: @color[error];
+
+      &:hover,
+      &:focus {
+        background-color: @color[error];
+        color: #37e649;
+      }
+    }
+  }
+
+  &.warning {
+    background-color: @color[warning];
+    color: @text[black-100];
+
+    &:hover,
+    &:focus {
+      background-color: darken(@color[warning], 15%);
+    }
+
+    &.outline {
+      background-color: transparent;
+      border-color: @color[warning];
+      color: @color[warning];
+
+      &:hover,
+      &:focus {
+        background-color: @color[warning];
+        color: @text[black-100];
+      }
+    }
+  }
+
+  &.success {
+    background-color: @color[success];
+    color: white;
+
+    &:hover,
+    &:focus {
+      background-color: darken(@color[success], 15%);
+    }
+
+    &.outline {
+      background-color: transparent;
+      border-color: @color[success];
+      color: @color[success];
+
+      &:hover,
+      &:focus {
+        background-color: @color[success];
+        color: white;
+      }
+    }
+  }
+}
