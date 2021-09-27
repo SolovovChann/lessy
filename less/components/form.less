@@ -39,7 +39,8 @@
 // Form checkbox & radio
 // =======
 
-.form-checkbox, .form-radio {
+.form-checkbox,
+.form-radio {
   cursor: pointer;
 
   position: relative;
@@ -68,9 +69,10 @@
     }
   }
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     &:before {
-      box-shadow: 0 0 1px 1px rgba(@color[primary], .75);
+      box-shadow: 0 0 1px 1px rgba(@color[primary], 0.75);
     }
   }
 
@@ -96,8 +98,8 @@
     display: block;
     border-radius: 99rem;
     background-color: @color[secondary];
-    width: calc(@size);
-    height: calc(@size);
+    width: @size;
+    height: @size;
 
     position: absolute;
     left: 0;
@@ -114,46 +116,57 @@
 
 .form-radio {
   @size: 1.75rem;
-  
+
   display: block;
   position: relative;
   cursor: pointer;
 
-  & > input {
-    display: none;
-  }
-
   &.active {
     color: @color[primary];
-    
+
     &:before {
       background-color: @color[primary];
     }
   }
 
-  // outer box
-  &:before {
-    content: '';
-    display: block;
-    width: @size;
-    height: @size;
-    margin-right: 1rem;
-    border: 0.02rem solid;
+  &.disabled {
+    color: @text[secondary];
 
-    border-color: @color[primary];
-    border-radius: 99rem;
-    
-    position: relative;
-    float: left;
+    &:before {
+      border-color: @color[secondary];
+    }
 
-    transition: 250ms ease;
-    transform: scale(0.8);
+    &:hover,
+    &focus {
+      &:before {
+        transform: scale(0.8);
+      }
+    }
   }
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     &:before {
       transform: none;
     }
+  }
+
+  &:before {
+    content: '';
+    border: 0.02rem solid;
+    display: block;
+    float: left;
+    height: @size;
+    margin-right: 1rem;
+    width: @size;
+
+    border-color: @color[primary];
+    border-radius: 99rem;
+
+    position: relative;
+
+    transform: scale(0.8);
+    transition: 250ms ease;
   }
 }
 
