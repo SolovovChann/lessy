@@ -36,23 +36,28 @@
 }
 
 // =======
-// Form checkbox
+// Form checkbox & radio
 // =======
 
-.form-checkbox {
-  @size: 3rem;
-  @outer: 0.25rem;
-
-  text-transform: uppercase;
+.form-checkbox, .form-radio {
   cursor: pointer;
 
   position: relative;
   transition: 250ms ease-in;
-  user-select: none;
 
   & > input {
     display: none;
   }
+}
+
+// =======
+// Form checkbox
+// =======
+
+.form-checkbox {
+  @size: 2.25rem;
+
+  text-transform: uppercase;
 
   &.active {
     color: @color[primary];
@@ -63,35 +68,92 @@
     }
   }
 
-  &:before {
-    content: '';
-    display: inline-block;
-    width: 2 * @size;
-    height: @size;
-
-    border-radius: 99rem;
-    box-shadow: 0 1px 1px rgba(#000, 16);
-
-    position: relative;
-    top: 50%;
-
-    .center(vertical);
+  &:hover, &:focus {
+    &:before {
+      box-shadow: 0 0 1px 1px rgba(@color[primary], .75);
+    }
   }
 
+  // outer box
+  &:before {
+    content: '';
+    display: block;
+    width: 2 * @size;
+    height: @size;
+    margin-right: 1.25rem;
+
+    border-radius: 99rem;
+    box-shadow: 0 0 1px 1px rgba(@color[secondary], 1);
+
+    position: relative;
+    transition: 250ms ease-out;
+    float: left;
+  }
+
+  // inner circle
   &:after {
     content: '';
     display: block;
     border-radius: 99rem;
     background-color: @color[secondary];
-    width: calc(@size - @outer);
-    height: calc(@size - @outer);
+    width: calc(@size);
+    height: calc(@size);
+
     position: absolute;
-    left: @outer;
-    top: 50%;
+    left: 0;
+    top: 0;
 
     transition: 250ms ease-out;
+    transform: translateX(calc(-2 * @size - 1.25rem));
+  }
+}
 
-    .center(vertical);
+// =======
+// Form radio
+// =======
+
+.form-radio {
+  @size: 1.75rem;
+  
+  display: block;
+  position: relative;
+  cursor: pointer;
+
+  & > input {
+    display: none;
+  }
+
+  &.active {
+    color: @color[primary];
+    
+    &:before {
+      background-color: @color[primary];
+    }
+  }
+
+  // outer box
+  &:before {
+    content: '';
+    display: block;
+    width: @size;
+    height: @size;
+    margin-right: 1rem;
+    border: 0.02rem solid;
+
+    border-color: @color[primary];
+    border-radius: 99rem;
+    
+    position: relative;
+    float: left;
+
+    transition: 250ms ease;
+    transform: scale(0.8);
+  }
+
+  &:hover, &:focus {
+    &:before {
+      transform: none;
+    }
   }
 }
 
