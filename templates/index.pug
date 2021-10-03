@@ -60,9 +60,11 @@ html(lang="ru")
             label.form-label Лейбл формы
               input(type="text" name="field1" placeholder="Плейсхолдер").form-input
 
-          .form-group
-            label.form-checkbox Текст чекбокса
-              input(type="checkbox", name="field4")
+          label.form-group.form-checkbox Текст чекбокса
+            input(type="checkbox", name="field4")
+
+          label.form-group.form-checkbox.disabled Выключенный
+            input(type="checkbox" name="field5")
 
           .form-group 
             label.form-label Текст селекта 
@@ -81,5 +83,3 @@ html(lang="ru")
               input(type="radio" name="field3")
             label.form-radio.disabled Выключенный
               input(type="radio" name="field3")
-
-  script(src="./main.js") 
